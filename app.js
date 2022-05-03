@@ -1,5 +1,6 @@
 // Usando objeto express
 const express = require('express');
+const req = require('express/lib/request');
 
 // App de Express
 const app = express();
@@ -13,9 +14,16 @@ app.get('/', (req, res) => {
 });
 
 // Respondiendo texto
-//localhost:3000/launchx
+// localhost:3000/launchx
 app.get('/launchx', (req, res) => {
 	res.send('Bienvenidos a Launch X');
+});
+
+// Regresando un objeto
+// localhost:3000/explorersInNode
+app.get('/explorersInNode', (req, res) => {
+	const explorer = { name: 'Explorer', msg: 'Hello' };
+	res.send(explorer);
 });
 
 // Con esto inicializamos esta app
